@@ -1,0 +1,22 @@
+RAILWAY COMPLAINT SYSTEM - FIXED FILES
+
+Replace these files in your existing RailwayComplaintSystem folder:
+- app.py
+- train_pipeline.py
+- requirements.txt
+- models/complaint_model.pkl
+- models/tfidf_vectorizer.pkl
+- data/After_NLP_Preprocessing.csv
+
+Keep your original data/Messy_DATA.csv. It is the source dataset used to train the updated model.
+
+From the RailwayComplaintSystem folder, run in your activated virtual environment:
+  python -m pip install -r requirements.txt
+  streamlit run app.py
+
+The app now checks clear complaint keywords before relying on ML, so rice/food-quality complaints route to Food -> Catering Department, while dirty toilets/coaches route to housekeeping-related categories.
+
+To retrain after editing the raw dataset:
+  python train_pipeline.py
+
+Note: the included model and vectorizer were retrained together using the updated pipeline. Keep them paired; do not replace only one of these two model files.

@@ -1,0 +1,17 @@
+# Never upload Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Secrets
+.env
+.env.*
+
+# Editor and system files
+.vscode/
+.DS_Store
+Thumbs.db

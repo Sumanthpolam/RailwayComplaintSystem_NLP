@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10243b">
+<meta name="description" content="RailCare railway passenger complaint classification demo.">
+<title>RailCare | Railway Complaint Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="RailCare home">
+    <span class="brand-mark">🚆</span>
+    <span class="brand-name">RailCare<small>RAILWAY PASSENGER SUPPORT</small></span>
+  </a>
+  <span class="live-pill"><i></i> Complaint assistant</span>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow"><span></span> SMART RAILWAY SUPPORT</div>
+    <h1>Your journey matters.<br><span>Let’s solve the problem.</span></h1>
+    <p>Describe the issue you experienced during your journey. RailCare classifies the complaint, estimates its priority, and recommends the department to contact.</p>
+    <div class="trust-row"><span>✓ Simple submission</span><span>✓ Instant classification</span><span>✓ Department recommendation</span></div>
+  </section>
+
+  <section class="layout">
+    <div class="panel form-panel">
+      <div class="panel-head">
+        <div class="head-left"><span class="step">01</span><div><h2>Tell us what happened</h2><p>Write your complaint in your own words.</p></div></div>
+        <span class="required">* Required</span>
+      </div>
+      <form id="complaint-form">
+        <label for="complaint">Complaint description <b>*</b></label>
+        <textarea id="complaint" name="complaint" maxlength="2000" minlength="5" required placeholder="Example: The AC is not working in coach B2 and the compartment is very hot..."></textarea>
+        <div class="textarea-footer"><span>For your privacy, do not enter passwords or sensitive personal details.</span><span id="char-count">0 / 2000</span></div>
+        <div class="examples"><span>Try an example</span>
+          <button type="button" class="chip" data-example="The AC is not working in coach B2">AC issue</button>
+          <button type="button" class="chip" data-example="The washroom is dirty and there is no water">Washroom</button>
+          <button type="button" class="chip" data-example="My luggage was stolen from the train">Security</button>
+          <button type="button" class="chip" data-example="The train is delayed by two hours">Train delay</button>
+        </div>
+        <div class="form-error" id="form-error" role="alert" hidden></div>
+        <button class="primary-btn" type="submit">Classify complaint <span aria-hidden="true">→</span></button>
+      </form>
+    </div>
+
+    <aside class="panel how-panel">
+      <div class="sparkle">✦</div>
+      <h2>How it works</h2>
+      <div class="how-step"><span>1</span><div><strong>Describe</strong><p>Enter the issue you faced during your journey.</p></div></div>
+      <div class="how-step"><span>2</span><div><strong>Classify</strong><p>The demo classifier identifies a likely complaint category.</p></div></div>
+      <div class="how-step"><span>3</span><div><strong>Recommend</strong><p>Review the suggested priority and responsible department.</p></div></div>
+      <div class="notice"><strong>Project demo</strong><p>This GitHub Pages version runs in your browser using keyword-based rules. It does not submit complaints to Indian Railways or use the Python model directly.</p></div>
+    </aside>
+  </section>
+
+  <section class="results panel" id="results" hidden aria-live="polite">
+    <div class="result-head">
+      <div class="head-left"><span class="step">02</span><div><h2>Classification result</h2><p>Review the recommendation generated for your text.</p></div></div>
+      <span class="reference" id="reference-id">DEMO-000000</span>
+    </div>
+    <div class="result-grid">
+      <article class="result-box"><span class="result-label">COMPLAINT CATEGORY</span><strong id="category">Other</strong><small>Predicted issue type</small></article>
+      <article class="result-box"><span class="result-label">PRIORITY</span><strong id="priority" class="priority"><i></i><span>Medium</span></strong><small>Based on detected keywords</small></article>
+      <article class="result-box"><span class="result-label">RESPONSIBLE DEPARTMENT</span><strong id="department">General Complaint Cell</strong><small>Suggested routing</small></article>
+      <article class="result-box"><span class="result-label">SUGGESTED STAFF ROLE</span><strong id="assigned-to">Complaint Cell Officer</strong><small>Not an actual assignment</small></article>
+    </div>
+    <div class="result-warning">Demo only: this reference number is generated in your browser. No official complaint has been filed.</div>
+    <button type="button" class="secondary-btn" id="new-complaint">Check another complaint</button>
+  </section>
+</main>
+
+<footer><span>RailCare · Railway Complaint Classification System</span><span>HTML · CSS · JavaScript</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
